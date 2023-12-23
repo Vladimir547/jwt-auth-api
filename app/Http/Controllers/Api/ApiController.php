@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Role;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Hash;
+use DB;
 class ApiController extends Controller
 {
     public function registration (Request $request) {
@@ -54,5 +55,27 @@ class ApiController extends Controller
                 "message" => "Something went wrong",
             ]);
         }
+    }
+    public function profile () {
+        $user = auth()->user();
+
+        return response()->json([
+            "status" => true,
+            "message" => "Profile data",
+            "data" => [
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
+                'phone' => $user->phone,
+                'email' => $user->email,
+                'role_id' => $user->role->role
+            ]
+        ]);
+    }
+    public function logout () {
+        auth()->logout();
+        return response()->json([
+            "status" => true,
+            "message" => "User logged out",
+        ]);
     }
 }
