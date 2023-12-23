@@ -35,4 +35,20 @@ class AdminController extends Controller
             "message" => "You don't have rights"
         ]);
     }
+    public function delete (Request $request) {
+        $request->validate([
+            'id' => 'required|integer',
+        ]);
+        if (auth()->user()->role->role === 'admin') {
+            $user = User::where('id', $request->id)->first()->delete();
+            return response() ->json([
+                "status" => true,
+                "message" => "Deleted"
+            ]);
+        }
+        return response() ->json([
+            "status" => false,
+            "message" => "You don't have rights"
+        ]);
+    }
 }

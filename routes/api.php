@@ -31,4 +31,5 @@ Route::group([
     Route::get('logout', [ApiController::class, 'logout']);
     Route::get('users', [AdminController::class, 'getAll']);
     Route::post('admin/add', [AdminController::class, 'addUser']);
+    Route::post('admin/delete', [AdminController::class, 'delete']);
 });
