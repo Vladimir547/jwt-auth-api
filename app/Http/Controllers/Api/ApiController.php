@@ -65,12 +65,7 @@ class ApiController extends Controller
 
         $user = auth()->user();
         if (auth()->user() && auth()->user()->role->role !== 'admin') {
-            if( !empty($request->id) && auth()->user()->id !== $request->id) {
-                return response()->json([
-                    "status" => false,
-                    "message" => "You don't have rights",
-                ]);
-            }
+
             $request->validate([
                 'id' => 'integer',
                 'first_name' => 'min:2',
@@ -78,6 +73,12 @@ class ApiController extends Controller
                 'phone'=> '|regex:/^(\+?\d+)$/|min:8',
                 'email'=> 'email|unique:users,email,'.auth()->user()->id,
             ]);
+            if( !empty($request->id) && auth()->user()->id !== intval($request->id)) {
+                return response()->json([
+                    "status" => false,
+                    "message" => "You don't have rights",
+                ]);
+            }
             $user->update([
                 'first_name' => !empty($request->first_name) ? $request->first_name : auth()->user()->first_name,
                 'last_name' => !empty($request->last_name) ? $request->last_name : auth()->user()->last_name,
@@ -85,7 +86,6 @@ class ApiController extends Controller
                 'email' => !empty($request->email) ? $request->email : auth()->user()->email,
                 'password' => !empty($request->password) ? Hash::make($request->password) : auth()->user()->password,
             ]);
-            dd($user);
         } elseif (auth()->user() && auth()->user()->role->role === 'admin') {
 
             $user = !empty($request->id) ? User::where("id", $request->id)->first() : auth()->user();
