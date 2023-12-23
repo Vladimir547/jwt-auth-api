@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Api\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,6 @@ Route::group([
 ], function () {
     Route::get('profile', [ApiController::class, 'profile']);
     Route::get('logout', [ApiController::class, 'logout']);
-
+    Route::get('users', [AdminController::class, 'getAll']);
+    Route::post('admin/add', [AdminController::class, 'addUser']);
 });
