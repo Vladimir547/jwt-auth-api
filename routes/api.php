@@ -32,4 +32,5 @@ Route::group([
     Route::get('users', [AdminController::class, 'getAll']);
     Route::post('admin/add', [AdminController::class, 'addUser']);
     Route::post('admin/delete', [AdminController::class, 'delete']);
+    Route::post('update', [ApiController::class, 'update']);
 });
