@@ -64,7 +64,13 @@ class ApiController extends Controller
     public function update (Request $request) {
 
         $user = auth()->user();
-        if (auth()->user() && auth()->user()->role->role !== 'admin' and empty($request->id)) {
+        if (auth()->user() && auth()->user()->role->role !== 'admin') {
+            if( !empty($request->id) && auth()->user()->id !== $request->id) {
+                return response()->json([
+                    "status" => false,
+                    "message" => "You don't have rights",
+                ]);
+            }
             $request->validate([
                 'id' => 'integer',
                 'first_name' => 'min:2',
@@ -80,9 +86,9 @@ class ApiController extends Controller
                 'password' => !empty($request->password) ? Hash::make($request->password) : auth()->user()->password,
             ]);
             dd($user);
-        } elseif (auth()->user() && auth()->user()->role->role === 'admin' and !empty($request->id)) {
+        } elseif (auth()->user() && auth()->user()->role->role === 'admin') {
 
-            $user = User::where("id", $request->id)->first();
+            $user = !empty($request->id) ? User::where("id", $request->id)->first() : auth()->user();
             $request->validate([
                 'id' => 'integer',
                 'first_name' => 'min:2',
