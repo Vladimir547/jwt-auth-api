@@ -31,4 +31,28 @@ class ApiController extends Controller
             "message" => "User created"
         ]);
     }
+    public function login(Request $request){
+
+        $request->validate([
+            "email" => "required|email",
+            "password" => "required"
+        ]);
+
+        $token = JWTAuth::attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+        if(!empty($token)) {
+            return response()->json([
+                "status" => true,
+                "message" => "User logged in succcessfully",
+                "token" => $token
+            ]);
+        } else {
+            return response()->json([
+                "status" => false,
+                "message" => "Something went wrong",
+            ]);
+        }
+    }
 }
