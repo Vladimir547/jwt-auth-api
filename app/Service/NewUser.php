@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\Hash;
 
 class NewUser
 {
+    /**
+     * Функция для создания новых ссылок
+     * createService сервис который записывает ссылки
+     *
+     * @use Illuminate\Support\Facades\Hash;
+     *
+     * @param Illuminate\Http\Request;
+     *
+     * @return JsonResponse
+     */
     public function addUser (Request $request) {
         $request->validate([
             'first_name' => 'required|min:2',
@@ -25,7 +35,7 @@ class NewUser
             'role_id' => 2
         ]);
         return response()->json([
-            "status" => true,
+            "status" => 200,
             "message" => "User created"
         ]);
     }

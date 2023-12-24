@@ -1,0 +1,541 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "APIs For Thrift Store",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Все пользователи для админа"
+                ],
+                "summary": "Все пользователи для админа",
+                "description": "Только для админа",
+                "operationId": "3c2c74b49ab1611a278d06dbf8a3743a",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Профиль пользователя",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "get users.",
+                                        "value": {
+                                            "status": 200
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Не прав",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "You don't have rights.",
+                                        "value": {
+                                            "status": 400
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/add": {
+            "post": {
+                "tags": [
+                    "Добавление пользователя"
+                ],
+                "summary": "Добавление пользователя",
+                "description": "Только для админа",
+                "operationId": "a42d7d42178e6cd7cc522ee37d774f07",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "first_name": "a3fb6",
+                                    "last_name": "Jessica Smith",
+                                    "phone": "+12345678",
+                                    "email": "example@email.com",
+                                    "password": "1234F+w#",
+                                    "password_confirmation": "1234F+w#"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Пользователь создан",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "User created.",
+                                        "value": {
+                                            "status": 200
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/delete": {
+            "post": {
+                "tags": [
+                    "Удаление"
+                ],
+                "summary": "Удаление",
+                "description": "Только для админа",
+                "operationId": "25f0a5479385ce1851afbae7096c51fe",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Пользователь создан",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "User created.",
+                                        "value": {
+                                            "status": 200
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Нет прав",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "You don't have rights.",
+                                        "value": {
+                                            "status": 400
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/registration": {
+            "post": {
+                "tags": [
+                    "Регистрация"
+                ],
+                "summary": "Регистрация",
+                "description": "Регистрация",
+                "operationId": "46a24efb8d37170fa2e0f7e70534eda7",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "first_name": "a3fb6",
+                                    "last_name": "Jessica Smith",
+                                    "phone": "+12345678",
+                                    "email": "example@email.com",
+                                    "password": "1234F+w#",
+                                    "password_confirmation": "1234F+w#"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Пользователь создан",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "User created.",
+                                        "value": {
+                                            "status": 200
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Авторизация"
+                ],
+                "summary": "Авторизация",
+                "description": "Авторизация",
+                "operationId": "f6d04be1de7bb4a85327471c8d3d1e42",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "email": "example@email.com",
+                                    "password": "1234F+w#"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Пользователь создан",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "User logged in succcessfully.",
+                                        "value": {
+                                            "status": 200
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Что-то пошло не так",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "Something went wrong.",
+                                        "value": {
+                                            "status": 400
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/profile": {
+            "get": {
+                "tags": [
+                    "Профиль пользователя"
+                ],
+                "summary": "Профиль пользователя",
+                "description": "Профиль пользователя",
+                "operationId": "69ce7486fd4bda371851be0b6459a145",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Профиль пользователя",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "User logged out.",
+                                        "value": {
+                                            "status": 200
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "Unauthenticated.",
+                                        "value": {
+                                            "status": 401
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/logout": {
+            "get": {
+                "tags": [
+                    "Выход из системы"
+                ],
+                "summary": "Выход из системы",
+                "description": "Выход из системы",
+                "operationId": "4d6287c225555da7021bc39336b00b71",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Профиль пользователя",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "Get user data.",
+                                        "value": {
+                                            "status": 200
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "Unauthenticated.",
+                                        "value": {
+                                            "status": 401
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/update": {
+            "post": {
+                "tags": [
+                    "Изменение пользователся"
+                ],
+                "summary": "Изменение пользователся",
+                "description": "Изменение пользователся",
+                "operationId": "988ddb9beb506f5975b60d3feae49d72",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "id": 1,
+                                    "first_name": "a3fb6",
+                                    "last_name": "Jessica Smith",
+                                    "phone": "+12345678",
+                                    "email": "example@email.com",
+                                    "password": "1234F+w#",
+                                    "password_confirmation": "1234F+w#"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Успешно изменен",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "Updated.",
+                                        "value": {
+                                            "status": 200
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "Unauthenticated.",
+                                        "value": {
+                                            "status": 401
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Не прав",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "You don't have rights.",
+                                        "value": {
+                                            "status": 400
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
