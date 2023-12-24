@@ -3,15 +3,25 @@
 
 ## Утановка
 1.git clone https://github.com/Vladimir547/jwt-auth-api.git
+
 2. cd jwt-auth-api
+  
 3.composer install
+
 4.Создать .env из файла .env.example
+
 5.php artisan key:generate
+
 6. php artisan jwt:secret
-7. sail up или bash ./vendor/laravel/sail/bin/sail up (./vendor/bin/sail up);
+7. 
+8. sail up или bash ./vendor/laravel/sail/bin/sail up (./vendor/bin/sail up);
+9. 
 8.Установить в файле .env в соответствии с вашей базой следущие пункты : DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=shorterLinks DB_USERNAME=sail DB_PASSWORD=password
+
 9.php artisan migrate --seed
+
 10.php artisan serve
+
 
 
 
