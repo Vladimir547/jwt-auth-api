@@ -13,14 +13,14 @@
 5.php artisan key:generate
 
 6. php artisan jwt:secret
-   
-8. sail up или bash ./vendor/laravel/sail/bin/sail up (./vendor/bin/sail up);
-   
-9.Установить в файле .env в соответствии с вашей базой следущие пункты : DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=shorterLinks DB_USERNAME=sail DB_PASSWORD=password
 
-10.php artisan migrate --seed
+7. sail up или bash ./vendor/laravel/sail/bin/sail up (./vendor/bin/sail up);
+   
+8.Установить в файле .env в соответствии с вашей базой следущие пункты : DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=shorterLinks DB_USERNAME=sail DB_PASSWORD=password
 
-11.php artisan serve
+9.php artisan migrate --seed
+
+10.php artisan serve
 
 
 
