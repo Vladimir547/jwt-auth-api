@@ -451,9 +451,6 @@
                                     },
                                     "password": {
                                         "type": "string"
-                                    },
-                                    "password_confirmation": {
-                                        "type": "string"
                                     }
                                 },
                                 "type": "object",
@@ -463,8 +460,7 @@
                                     "last_name": "Jessica Smith",
                                     "phone": "+12345678",
                                     "email": "example@email.com",
-                                    "password": "1234F+w#",
-                                    "password_confirmation": "1234F+w#"
+                                    "password": "1234F+w#"
                                 }
                             }
                         }

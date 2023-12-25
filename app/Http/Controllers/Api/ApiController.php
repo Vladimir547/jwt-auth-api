@@ -265,7 +265,7 @@ class ApiController extends Controller
      *                @OA\Property(
      *                     property="password",
      *                     type="string"
-     *                 )
+     *                 ),
      *                 example={"id": 1, "first_name": "a3fb6", "last_name": "Jessica Smith", "phone": "+12345678", "email": "example@email.com", "password": "1234F+w#"}
      *             )
      *         )
