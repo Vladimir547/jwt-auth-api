@@ -29,9 +29,9 @@ class ApiController extends Controller
     /**
      * @OA\Post(
      *     path="/api/registration",
-     *     summary="Регистрация",
-     *     description="Регистрация",
-     *     tags={"Регистрация"},
+     *     summary="Регистрация(отключенно, в задании этого не дыло)",
+     *     description="Регистрация(отключенно, в задании этого не дыло)",
+     *     tags={"Регистрация(отключенно, в задании этого не дыло)"},
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
