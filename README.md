@@ -16,7 +16,7 @@
 
 7. sail up или bash ./vendor/laravel/sail/bin/sail up (./vendor/bin/sail up);
    
-8.Установить в файле .env в соответствии с вашей базой следущие пункты : DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=shorterLinks DB_USERNAME=sail DB_PASSWORD=password
+8.Установить в файле .env в соответствии с вашей базой следущие пункты : DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=laravel DB_USERNAME=sail DB_PASSWORD=password
 
 9.php artisan migrate --seed
 
