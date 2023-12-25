@@ -314,8 +314,9 @@ class ApiController extends Controller
                 'id' => 'integer',
                 'first_name' => 'min:2',
                 'last_name' => 'min:2',
-                'phone'=> '|regex:/^(\+?\d+)$/|min:8',
+                'phone'=> '|regex:/^(\+\d+)$/|min:8',
                 'email'=> 'email|unique:users,email,'.auth()->user()->id,
+                'password'=> 'min:6',
             ]);
             // проверка на то что-бы пользоватеть не поменял другого пользователя
             if( !empty($request->id) && auth()->user()->id !== intval($request->id)) {
@@ -340,8 +341,9 @@ class ApiController extends Controller
                 'id' => 'integer',
                 'first_name' => 'min:2',
                 'last_name' => 'min:2',
-                'phone'=> '|regex:/^(\+?\d+)$/|min:8',
+                'phone'=> '|regex:/^(\+\d+)$/|min:8',
                 'email'=> 'email|unique:users,email,'.$user->id,
+                'password'=> 'min:6',
             ]);
             $user->update([
                 'first_name' => !empty($request->first_name) ? $request->first_name : $user->first_name,

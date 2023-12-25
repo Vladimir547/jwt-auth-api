@@ -22,7 +22,7 @@ class NewUser
         $request->validate([
             'first_name' => 'required|min:2',
             'last_name' => 'required|min:2',
-            'phone'=> 'required||regex:/^(\+?\d+)$/|min:8',
+            'phone'=> 'required||regex:/^(\+\d+)$/|min:8',
             'email'=> 'required|email|unique:users',
             'password'=> 'required|confirmed|min:6',
         ]);
